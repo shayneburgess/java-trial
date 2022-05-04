@@ -18,3 +18,17 @@ This API is pri0 and we need your help. Here's what needs to get done:
 
 - [ ] Create a devcontainer.json with a default VM size big enough for this project. Use your discretion. 
 - [ ] Add an endpoint to POST a new Dad joke
+
+### Test
+
+The following should work with the new POST endpoint:
+
+```http request
+POST http://localhost:8080/dad/jokes
+Content-Type: application/json
+
+{
+  "question": "Do you know what's funny?",
+  "answer": "Dad jokes"
+}
+```
