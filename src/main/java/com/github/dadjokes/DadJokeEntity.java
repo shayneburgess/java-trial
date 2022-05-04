@@ -5,17 +5,18 @@ import javax.persistence.*;
 @Entity
 @Table(name = "jokes", schema = "dadjokes", catalog = "dadjokes")
 public class DadJokeEntity {
-    private long id;
+    private Long id;
     private String question;
     private String answer;
 
     @Id
     @Column(name = "id")
-    public long getId() {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
