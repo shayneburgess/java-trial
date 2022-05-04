@@ -1,7 +1,7 @@
 {
   "name": "shayneburgess/java-trial",
   "onCreateCommand": "bootstrap.sh",
-  "image": "ghcr.io/shayneburgess/java-trial/devcontainer:latest",
+  "image": "mcr.microsoft.com/vscode/devcontainers/java:11",
   "hostRequirements": {
     "storage": "64gb",
     "memory": "8gb"
