@@ -1,7 +1,7 @@
 {
   "name": "shayneburgess/java-trial",
-  "onCreateCommand": "bootstrap.sh",
-  "image": "ghcr.io/shayneburgess/java-trial/devcontainer:latest",
+  "postInstall": "bootstrap.sh",
+  "image": "mcr.microsoft.com/vscode/devcontainers/java:11",
   "hostRequirements": {
     "storage": "64gb",
     "memory": "8gb"
@@ -10,7 +10,14 @@
   "appPort": [8080],
   "portsAttributes": {
     "8080": {
-      "label": "Dad Jokes"
+      "label": "Dad Jokes API"
+    }
+  },
+  "features": {
+    "docker-in-docker": {
+      "version": "latest",
+      "moby": true,
+      "dockerDashComposeVersion": "v1"
     }
   }
 }
