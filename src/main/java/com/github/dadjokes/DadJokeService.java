@@ -4,7 +4,6 @@ import com.github.dadjokes.model.DadJoke;
 import javassist.NotFoundException;
 import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -24,9 +23,12 @@ public class DadJokeService {
         return mapper.map(dadJokeEntity, DadJoke.class);
     }
 
-    public DadJoke createDadJoke(DadJoke dadJoke) throws DataIntegrityViolationException {
-        DadJokeEntity dadJokeEntity = mapper.map(dadJoke, DadJokeEntity.class);
-        DadJokeEntity savedJoke = dadJokeRepository.save(dadJokeEntity);
-        return mapper.map(savedJoke, DadJoke.class);
+    public DadJoke createDadJoke(DadJoke dadJoke) {
+        DadJokeEntity dadJokeEntity = dadJokeRepository.getDadJokeEntityByQuestionIgnoreCaseAndAnswerIgnoreCase(dadJoke.getQuestion(), dadJoke.getAnswer());
+        if (dadJokeEntity == null) {
+            dadJokeEntity = mapper.map(dadJoke, DadJokeEntity.class);
+            dadJokeEntity = dadJokeRepository.save(dadJokeEntity);
+        }
+        return mapper.map(dadJokeEntity, DadJoke.class);
     }
 }
