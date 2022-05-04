@@ -22,4 +22,13 @@ public class DadJokeService {
         }
         return mapper.map(dadJokeEntity, DadJoke.class);
     }
+
+    public DadJoke createDadJoke(DadJoke dadJoke) {
+        DadJokeEntity dadJokeEntity = dadJokeRepository.getDadJokeEntityByQuestionIgnoreCaseAndAnswerIgnoreCase(dadJoke.getQuestion(), dadJoke.getAnswer());
+        if (dadJokeEntity == null) {
+            dadJokeEntity = mapper.map(dadJoke, DadJokeEntity.class);
+            dadJokeEntity = dadJokeRepository.save(dadJokeEntity);
+        }
+        return mapper.map(dadJokeEntity, DadJoke.class);
+    }
 }

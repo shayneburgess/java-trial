@@ -1,2 +1,12 @@
 ###
 GET http://localhost:8080/dad/jokes/1
+
+
+###
+POST http://localhost:8080/dad/jokes
+Content-Type: application/json
+
+{
+  "question": "test7",
+  "answer": "test"
+}
