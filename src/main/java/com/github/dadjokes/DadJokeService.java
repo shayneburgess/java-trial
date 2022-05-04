@@ -4,7 +4,6 @@ import com.github.dadjokes.model.DadJoke;
 import javassist.NotFoundException;
 import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;
-import org.postgresql.util.PSQLException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
