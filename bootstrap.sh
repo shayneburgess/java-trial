@@ -7,5 +7,5 @@ echo "DB initialized"
 
 echo "Building project..."
 cd ..
-mvn clean install
+./mvnw clean install
 echo "Project built"
